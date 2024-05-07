@@ -21,3 +21,7 @@ makedocs(;
         "distance.md",
     ],
 )
+
+deploydocs(;
+    repo="github.com/qwjyh/QuantumLegos.jl",
+)
