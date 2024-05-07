@@ -35,7 +35,7 @@ jobs:
           - os: ubuntu-latest
             version: 'nightly'
             arch: x64
-            allow_failure: true
+            continue-on-failure: true
     steps:
       - uses: actions/checkout@v4
       - uses: julia-actions/setup-julia@v2
