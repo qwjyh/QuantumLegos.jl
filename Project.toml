@@ -1,0 +1,31 @@
+name = "QuantumLegos"
+uuid = "6c892f99-6e80-4382-8dc3-97545b5cb80e"
+authors = ["qwjyh <urataw421@gmail.com>"]
+version = "0.1.0-DEV"
+
+[deps]
+IterTools = "c8e1da08-722c-5040-9ed9-7db0dc04731e"
+StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
+
+[compat]
+AbstractAlgebra = "0.34"
+Aqua = "0.8"
+Documenter = "1"
+IterTools = "1.8"
+JET = "0.8"
+LinearAlgebra = "1"
+StaticArrays = "1"
+Test = "1"
+julia = "1.9"
+
+[extras]
+AbstractAlgebra = "c3fe647b-3220-5bb0-a1ea-a7954cac585d"
+Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
+DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+JET = "c3a54625-cd67-489e-a8e7-0a5a0ff4e31b"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["AbstractAlgebra", "Aqua", "DataStructures", "Documenter", "JET", "LinearAlgebra", "Test"]
