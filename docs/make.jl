@@ -1,14 +1,14 @@
 #! format: off
-using Legos
+using QuantumLegos
 using Documenter
 
-DocMeta.setdocmeta!(Legos, :DocTestSetup, :(using Legos); recursive=true)
+DocMeta.setdocmeta!(QuantumLegos, :DocTestSetup, :(using QuantumLegos); recursive=true)
 
 makedocs(;
-    modules=[Legos],
+    modules=[QuantumLegos],
     authors="",
     # repo="",
-    sitename="Legos.jl",
+    sitename="QuantumLegos.jl",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
         edit_link="main",
