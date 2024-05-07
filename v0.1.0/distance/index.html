@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>How to calculate code distance from the state. · QuantumLegos.jl</title><meta name="title" content="How to calculate code distance from the state. · QuantumLegos.jl"/><meta property="og:title" content="How to calculate code distance from the state. · QuantumLegos.jl"/><meta property="twitter:title" content="How to calculate code distance from the state. · QuantumLegos.jl"/><meta name="description" content="Documentation for QuantumLegos.jl."/><meta property="og:description" content="Documentation for QuantumLegos.jl."/><meta property="twitter:description" content="Documentation for QuantumLegos.jl."/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">QuantumLegos.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Home</a></li><li><a class="tocitem" href="../pauliops/">PauliOps</a></li><li><a class="tocitem" href="../checkmatrix/">Details on check matrix operations</a></li><li class="is-active"><a class="tocitem" href>How to calculate code distance from the state.</a><ul class="internal"><li><a class="tocitem" href="#Definition-of-code-distance."><span>Definition of code distance.</span></a></li><li><a class="tocitem" href="#Classification-of-the-stabilizers."><span>Classification of the stabilizers.</span></a></li><li><a class="tocitem" href="#Calculating-code-distance-from-the-check-matrix."><span>Calculating code distance from the check matrix.</span></a></li><li><a class="tocitem" href="#Examples"><span>Examples</span></a></li></ul></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>How to calculate code distance from the state.</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>How to calculate code distance from the state.</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/qwjyh/QuantumLegos.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/qwjyh/QuantumLegos.jl/blob/main/docs/src/distance.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="How-to-calculate-code-distance-from-the-state."><a class="docs-heading-anchor" href="#How-to-calculate-code-distance-from-the-state.">How to calculate code distance from the state.</a><a id="How-to-calculate-code-distance-from-the-state.-1"></a><a class="docs-heading-anchor-permalink" href="#How-to-calculate-code-distance-from-the-state." title="Permalink"></a></h1><div class="admonition is-warning"><header class="admonition-header">WIP</header><div class="admonition-body"><p>This document is not fully completed.</p></div></div><h2 id="Definition-of-code-distance."><a class="docs-heading-anchor" href="#Definition-of-code-distance.">Definition of code distance.</a><a id="Definition-of-code-distance.-1"></a><a class="docs-heading-anchor-permalink" href="#Definition-of-code-distance." title="Permalink"></a></h2><p>Let&#39;s consider encoding circuit with <span>$1$</span> logical bit and <span>$k$</span> physical qubits<sup class="footnote-reference"><a id="citeref-1" href="#footnote-1">[1]</a></sup>. Then this encoding has two physical basis, <span>$\ket{0}_L$</span> and <span>$\ket{1}_L$</span>. The <strong>distance</strong> of this encoding is the minimum bit flip required to convert between <span>$\ket{0}_L$</span> and <span>$\ket{1}_L$</span>.</p><h2 id="Classification-of-the-stabilizers."><a class="docs-heading-anchor" href="#Classification-of-the-stabilizers.">Classification of the stabilizers.</a><a id="Classification-of-the-stabilizers.-1"></a><a class="docs-heading-anchor-permalink" href="#Classification-of-the-stabilizers." title="Permalink"></a></h2><p>When treating <code>State</code>, the logical leg is not assigned and one can treat all stabilizers equally. However, if logical leg is assigned to the state, these stabilizers can be classified to <span>$4$</span> groups.</p><ol><li>stabilizers on physical qubits</li><li>​<span>$\bar{X}$</span>, which corresponds to logical <span>$X$</span></li><li>​<span>$\bar{Z}$</span>, which corresponds to logical <span>$Z$</span></li><li>​<span>$\bar{Y}$</span>, which corresponds to logical <span>$Y$</span></li></ol><p>Let <span>$\ket{V}$</span> is the dual state of the channel or encoding map <span>$[[n, 1, d]]$</span>,</p><p class="math-container">\[distance = \min_{S \in stabilizers} \#\left\{ i \mid \bar{Z}_i ≠ S_i \right\}\]</p><h2 id="Calculating-code-distance-from-the-check-matrix."><a class="docs-heading-anchor" href="#Calculating-code-distance-from-the-check-matrix.">Calculating code distance from the check matrix.</a><a id="Calculating-code-distance-from-the-check-matrix.-1"></a><a class="docs-heading-anchor-permalink" href="#Calculating-code-distance-from-the-check-matrix." title="Permalink"></a></h2><p>TODO: nor required if the performance doesn&#39;t matter.</p><h2 id="Examples"><a class="docs-heading-anchor" href="#Examples">Examples</a><a id="Examples-1"></a><a class="docs-heading-anchor-permalink" href="#Examples" title="Permalink"></a></h2><h3 id="[[5,-1,-3]]-code"><a class="docs-heading-anchor" href="#[[5,-1,-3]]-code"><span>$[[5, 1, 3]]$</span> code</a><a id="[[5,-1,-3]]-code-1"></a><a class="docs-heading-anchor-permalink" href="#[[5,-1,-3]]-code" title="Permalink"></a></h3><p>​<span>$[[5, 1, 3]]$</span> code has <span>$4$</span> stabilizers generators, <span>$XZZXI, IXZZX, XIXZZ, ZXIXZ$</span> and <span>$2$</span> logical operators, <span>$\bar{X} = XXXXX$</span> and <span>$\bar{Z} = ZZZZZ$</span>. Therefore, stabilizer generators for the corresponding state <span>$[[6, 0]]$</span> is <span>$IXZZXI, IIXZZX, IXIXZZ, IZXIXZ, XXXXXX, ZZZZZZ$</span>.</p><p>Let&#39;s construct <span>$[[6, 0]]$</span> state on QuantumLegos.jl.</p><pre><code class="language-julia-repl hljs">julia&gt; using QuantumLegos
+
+julia&gt; stab_513 = pauliop.([&quot;IXZZXI&quot;, &quot;IIXZZX&quot;, &quot;IXIXZZ&quot;, &quot;IZXIXZ&quot;, &quot;XXXXXX&quot;, &quot;ZZZZZZ&quot;])
+6-element Vector{StaticArraysCore.SVector{6, QuantumLegos.PauliOps.SinglePauliOp}}:
+ pauliop(&quot;IXZZXI&quot;)
+ pauliop(&quot;IIXZZX&quot;)
+ pauliop(&quot;IXIXZZ&quot;)
+ pauliop(&quot;IZXIXZ&quot;)
+ pauliop(&quot;XXXXXX&quot;)
+ pauliop(&quot;ZZZZZZ&quot;)
+
+julia&gt; lego_513 = Lego(stab_513)
+Lego{6}(6, StaticArraysCore.SVector{6, QuantumLegos.PauliOps.SinglePauliOp}[pauliop(&quot;IXZZXI&quot;), pauliop(&quot;IIXZZX&quot;), pauliop(&quot;IXIXZZ&quot;), pauliop(&quot;IZXIXZ&quot;), pauliop(&quot;XXXXXX&quot;), pauliop(&quot;ZZZZZZ&quot;)])
+
+julia&gt; state_513 = State([lego_513], edge.([]))
+State(Lego[Lego{6}(6, StaticArraysCore.SVector{6, QuantumLegos.PauliOps.SinglePauliOp}[pauliop(&quot;IXZZXI&quot;), pauliop(&quot;IIXZZX&quot;), pauliop(&quot;IXIXZZ&quot;), pauliop(&quot;IZXIXZ&quot;), pauliop(&quot;XXXXXX&quot;), pauliop(&quot;ZZZZZZ&quot;)])], Tuple{LegoLeg, LegoLeg}[], CheckMatrix(Bool[0 1 … 0 0; 0 0 … 1 0; … ; 1 1 … 0 0; 0 0 … 1 1], 6, 6))
+</code></pre><p>Then collect generators of the state.</p><pre><code class="language-julia-repl hljs">julia&gt; normalizers = state_513.cmat |&gt; generators |&gt; GeneratedPauliGroup |&gt; collect
+64-element Vector{StaticArraysCore.SVector{6, QuantumLegos.PauliOps.SinglePauliOp}}:
+ pauliop(&quot;IIIIII&quot;)
+ pauliop(&quot;IXZZXI&quot;)
+ pauliop(&quot;IIXZZX&quot;)
+ pauliop(&quot;IXYIYX&quot;)
+ pauliop(&quot;IXIXZZ&quot;)
+ pauliop(&quot;IIZYYZ&quot;)
+ pauliop(&quot;IXXYIY&quot;)
+ pauliop(&quot;IIYXXY&quot;)
+ pauliop(&quot;IZXIXZ&quot;)
+ pauliop(&quot;IYYZIZ&quot;)
+ ⋮
+ pauliop(&quot;YYIZZI&quot;)
+ pauliop(&quot;YXZYZX&quot;)
+ pauliop(&quot;YIIXYX&quot;)
+ pauliop(&quot;YXYXII&quot;)
+ pauliop(&quot;YIXYXI&quot;)
+ pauliop(&quot;YIZZIY&quot;)
+ pauliop(&quot;YXIIXY&quot;)
+ pauliop(&quot;YIYIZZ&quot;)
+ pauliop(&quot;YXXZYZ&quot;)
+</code></pre><p>Get stabilizer and normalizers of the <span>$[[5, 1, 3]]$</span> code by assigning the first leg as logical.</p><pre><code class="language-julia-repl hljs">julia&gt; stabs = filter(x -&gt; x[1] == PauliOps.I, normalizers)
+16-element Vector{StaticArraysCore.SVector{6, QuantumLegos.PauliOps.SinglePauliOp}}:
+ pauliop(&quot;IIIIII&quot;)
+ pauliop(&quot;IXZZXI&quot;)
+ pauliop(&quot;IIXZZX&quot;)
+ pauliop(&quot;IXYIYX&quot;)
+ pauliop(&quot;IXIXZZ&quot;)
+ pauliop(&quot;IIZYYZ&quot;)
+ pauliop(&quot;IXXYIY&quot;)
+ pauliop(&quot;IIYXXY&quot;)
+ pauliop(&quot;IZXIXZ&quot;)
+ pauliop(&quot;IYYZIZ&quot;)
+ pauliop(&quot;IZIZYY&quot;)
+ pauliop(&quot;IYZIZY&quot;)
+ pauliop(&quot;IYXXYI&quot;)
+ pauliop(&quot;IZYYZI&quot;)
+ pauliop(&quot;IYIYXX&quot;)
+ pauliop(&quot;IZZXIX&quot;)
+
+julia&gt; norm_x = filter(x -&gt; x[1] == PauliOps.X, normalizers)
+16-element Vector{StaticArraysCore.SVector{6, QuantumLegos.PauliOps.SinglePauliOp}}:
+ pauliop(&quot;XXXXXX&quot;)
+ pauliop(&quot;XIYYIX&quot;)
+ pauliop(&quot;XXIYYI&quot;)
+ pauliop(&quot;XIZXZI&quot;)
+ pauliop(&quot;XIXIYY&quot;)
+ pauliop(&quot;XXYZZY&quot;)
+ pauliop(&quot;XIIZXZ&quot;)
+ pauliop(&quot;XXZIIZ&quot;)
+ pauliop(&quot;XYIXIY&quot;)
+ pauliop(&quot;XZZYXY&quot;)
+ pauliop(&quot;XYXYZZ&quot;)
+ pauliop(&quot;XZYXYZ&quot;)
+ pauliop(&quot;XZIIZX&quot;)
+ pauliop(&quot;XYZZYX&quot;)
+ pauliop(&quot;XZXZII&quot;)
+ pauliop(&quot;XYYIXI&quot;)
+
+julia&gt; norm_y = filter(x -&gt; x[1] == PauliOps.Y, normalizers)
+16-element Vector{StaticArraysCore.SVector{6, QuantumLegos.PauliOps.SinglePauliOp}}:
+ pauliop(&quot;YYYYYY&quot;)
+ pauliop(&quot;YZXXZY&quot;)
+ pauliop(&quot;YYZXXZ&quot;)
+ pauliop(&quot;YZIYIZ&quot;)
+ pauliop(&quot;YZYZXX&quot;)
+ pauliop(&quot;YYXIIX&quot;)
+ pauliop(&quot;YZZIYI&quot;)
+ pauliop(&quot;YYIZZI&quot;)
+ pauliop(&quot;YXZYZX&quot;)
+ pauliop(&quot;YIIXYX&quot;)
+ pauliop(&quot;YXYXII&quot;)
+ pauliop(&quot;YIXYXI&quot;)
+ pauliop(&quot;YIZZIY&quot;)
+ pauliop(&quot;YXIIXY&quot;)
+ pauliop(&quot;YIYIZZ&quot;)
+ pauliop(&quot;YXXZYZ&quot;)
+
+julia&gt; norm_z = filter(x -&gt; x[1] == PauliOps.Z, normalizers)
+16-element Vector{StaticArraysCore.SVector{6, QuantumLegos.PauliOps.SinglePauliOp}}:
+ pauliop(&quot;ZZZZZZ&quot;)
+ pauliop(&quot;ZYIIYZ&quot;)
+ pauliop(&quot;ZZYIIY&quot;)
+ pauliop(&quot;ZYXZXY&quot;)
+ pauliop(&quot;ZYZYII&quot;)
+ pauliop(&quot;ZZIXXI&quot;)
+ pauliop(&quot;ZYYXZX&quot;)
+ pauliop(&quot;ZZXYYX&quot;)
+ pauliop(&quot;ZIYZYI&quot;)
+ pauliop(&quot;ZXXIZI&quot;)
+ pauliop(&quot;ZIZIXX&quot;)
+ pauliop(&quot;ZXIZIX&quot;)
+ pauliop(&quot;ZXYYXZ&quot;)
+ pauliop(&quot;ZIXXIZ&quot;)
+ pauliop(&quot;ZXZXYY&quot;)
+ pauliop(&quot;ZIIYZY&quot;)
+</code></pre><p>These normalizers are generated from one logical operator and stabilizers.</p><pre><code class="language-julia-repl hljs">julia&gt; map(x -&gt; x .* pauliop(&quot;XXXXXX&quot;), stabs) |&gt; Set == Set(norm_x)
+true
+
+julia&gt; map(x -&gt; x .* pauliop(&quot;ZZZZZZ&quot;), stabs) |&gt; Set == Set(norm_x)
+false
+
+julia&gt; map(x -&gt; x .* pauliop(&quot;ZZZZZZ&quot;), stabs) |&gt; Set == Set(norm_z)
+true
+
+julia&gt; map(x -&gt; x .* pauliop(&quot;YYYYYY&quot;), stabs) |&gt; Set == Set(norm_y)
+true
+
+julia&gt; using IterTools
+
+julia&gt; groupby(x -&gt; x[1], normalizers) .|&gt; Set == Set.([stabs, norm_x, norm_z, norm_y])
+true
+</code></pre><p>Define a function to get weight of the operator.</p><pre><code class="language-julia-repl hljs">julia&gt; function weight(x, i = 1)
+           count(x[i:end] .!= PauliOps.I)
+       end
+weight (generic function with 2 methods)
+
+julia&gt; weight(pauliop(&quot;XIXIXI&quot;))
+3
+
+julia&gt; weight(pauliop(&quot;XIXIXI&quot;), 2)
+2
+</code></pre><p>Calculate coefficients of enumerator polynomial.</p><pre><code class="language-julia-repl hljs">julia&gt; using DataStructures
+
+julia&gt; stabs .|&gt; weight |&gt; counter
+Accumulator{Int64, Int64} with 2 entries:
+  0 =&gt; 1
+  4 =&gt; 15
+
+julia&gt; function weight(i::Integer)
+           Base.Fix2(weight, i)
+       end
+weight (generic function with 3 methods)
+
+julia&gt; normalizers .|&gt; weight(2) |&gt; counter
+Accumulator{Int64, Int64} with 4 entries:
+  0 =&gt; 1
+  4 =&gt; 15
+  5 =&gt; 18
+  3 =&gt; 30
+
+julia&gt; [norm_x..., norm_y..., norm_z...] .|&gt; weight(2) |&gt; counter
+Accumulator{Int64, Int64} with 2 entries:
+  5 =&gt; 18
+  3 =&gt; 30
+
+julia&gt; [norm_x..., norm_y..., norm_z...] .|&gt; weight(2) |&gt; counter |&gt; keys |&gt; minimum
+3
+</code></pre><p>Code distance of the encoding is the minimum degree of the non-zero term in the normalizer&#39;s polynomial(<span>$B$</span>) and not in the stabilizer&#39;s polynomial(<span>$A$</span>). So the code distance of this encoding is <span>$3$</span>.</p><section class="footnotes is-size-7"><ul><li class="footnote" id="footnote-1"><a class="tag is-link" href="#citeref-1">1</a>Not all state can be formalized like this. TODO</li></ul></section></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../checkmatrix/">« Details on check matrix operations</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.4.1 on <span class="colophon-date" title="Tuesday 7 May 2024 02:53">Tuesday 7 May 2024</span>. Using Julia version 1.10.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
