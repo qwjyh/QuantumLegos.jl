@@ -2,5 +2,5 @@
 DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 IterTools = "c8e1da08-722c-5040-9ed9-7db0dc04731e"
-Legos = "6c892f99-6e80-4382-8dc3-97545b5cb80e"
+QuantumLegos = "6c892f99-6e80-4382-8dc3-97545b5cb80e"
 StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
