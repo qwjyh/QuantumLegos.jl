@@ -74,5 +74,5 @@ jobs:
         run: |
           using Documenter: DocMeta, doctest
           using QuantumLegos
-          DocMeta.setdocmeta!(TestPkg, :DocTestSetup, :(using TestPkg); recursive=true)
-          doctest(TestPkg)
+          DocMeta.setdocmeta!(QuantumLegos, :DocTestSetup, :(using QuantumLegos); recursive=true)
+          doctest(QuantumLegos)
